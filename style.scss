@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  'Poppins', sans-serif;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    transform-style: preserve-3d;
+}
+
+.cards .face{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 2s ease-in-out;
+    -webkit-transition: 2s ease-in-out;
+    -moz-transition: 2s ease-in-out;
+    -ms-transition: 2s ease-in-out;
+    -o-transition: 2s ease-in-out;
+    transform: perspective(500px) rotateY(0deg);
+    -webkit-transform: perspective(500px) rotateY(0deg);
+    -moz-transform: perspective(500px) rotateY(0deg);
+    -ms-transform: perspective(500px) rotateY(0deg);
+    -o-transform: perspective(500px) rotateY(0deg);
+}
+
+.cards .face.front{
+    background: #ff0;
+}
+.cards:hover .face.front{
+    transform: perspective(500px) rotateY(180deg);
+    -webkit-transform: perspective(500px) rotateY(180deg);
+    -moz-transform: perspective(500px) rotateY(180deg);
+    -ms-transform: perspective(500px) rotateY(180deg);
+    -o-transform: perspective(500px) rotateY(180deg);
+}
+.cards .face.back{
+    background: #3bc2ff;
+    color: #fff;
+    transform: perspective(500px) rotateY(180deg);
+    -webkit-transform: perspective(500px) rotateY(180deg);
+    -moz-transform: perspective(500px) rotateY(180deg);
+    -ms-transform: perspective(500px) rotateY(180deg);
+    -o-transform: perspective(500px) rotateY(180deg);
+}
+.cards:hover .face.back{
+    transform: perspective(500px) rotateY(360deg);
+    -webkit-transform: perspective(500px) rotateY(360deg);
+    -moz-transform: perspective(500px) rotateY(360deg);
+    -ms-transform: perspective(500px) rotateY(360deg);
+    -o-transform: perspective(500px) rotateY(360deg);
+}
