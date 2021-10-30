@@ -1,0 +1,12 @@
+.front
+https://assets.codepen.io/1462889/sea.png
+https://assets.codepen.io/1462889/kayak.png
+https://assets.codepen.io/1462889/water.png
+https://assets.codepen.io/1462889/Stone.png
+
+
+.back
+https://assets.codepen.io/1462889/grass.png
+https://assets.codepen.io/1462889/camp.png
+https://assets.codepen.io/1462889/Ivy.png
+https://assets.codepen.io/1462889/IvyRock.png

@@ -1,74 +1,364 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins');
 
+$main: #102770;
+$secoundary: #ffeba7;
+
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:  'Poppins', sans-serif;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ text-decoration: none;
+ list-style: none;
+ backface-visibility: hidden;
+ -webkit-backface-visibility: hidden;
+}
+
+html{
+  font-size: 62.5%;
 }
 
 body{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $secoundary;
+}
+img{
+  width: 100%;
 }
 
-.cards{
+@mixin borderRadius($poperty) {
+ border-radius: $poperty;
+ -webkit-border-radius: $poperty;
+ -moz-border-radius: $poperty;
+ -ms-border-radius: $poperty;
+ -o-border-radius: $poperty;
+}
+
+@mixin transform($poperty) {
+  transform: $poperty;
+  -webkit-transform: $poperty;
+  -moz-transform: $poperty;
+  -ms-transform: $poperty;
+  -o-transform: $poperty;
+}
+@mixin transition ($poperty) {
+  transition: $poperty;
+  -webkit-transition: $poperty;
+  -moz-transition: $poperty;
+  -ms-transition: $poperty;
+  -o-transition: $poperty;
+}
+
+@mixin animation ($poperty) {
+  animation: $poperty;
+  -webkit-animation: $poperty;
+}
+
+.section{
+  .btns{
     position: relative;
-    width: 300px;
-    height: 400px;
-    transform-style: preserve-3d;
-}
-
-.cards .face{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
+    border: 1px solid $main;
+    text-align: center;
+    margin-bottom: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 2s ease-in-out;
-    -webkit-transition: 2s ease-in-out;
-    -moz-transition: 2s ease-in-out;
-    -ms-transition: 2s ease-in-out;
-    -o-transition: 2s ease-in-out;
-    transform: perspective(500px) rotateY(0deg);
-    -webkit-transform: perspective(500px) rotateY(0deg);
-    -moz-transform: perspective(500px) rotateY(0deg);
-    -ms-transform: perspective(500px) rotateY(0deg);
-    -o-transform: perspective(500px) rotateY(0deg);
+    height: 45px;
+    @include borderRadius(.5rem);
+
+    .btn-overlay{
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: $main;
+      z-index: -1;
+      content: '';
+      @include transform(translateX(0));
+      color: $secoundary;
+      @include transition(.5s ease-in-out);
+
+      &.active{
+        background: $main;
+        @include transform(translateX(100%))
+      }
+    }
+
+    .btn{
+     
+      width: 50%;
+      height: 100%;
+      font-size: 2rem;
+      padding: .5rem 2rem;
+      z-index: 100;
+      color: $main;
+      font-weight: bold;
+      
+      &.active{
+        color: $secoundary;
+        transition-delay: 0.2s;
+      }
+    }
+
+  }
+
+  .card{
+    width: 350px;
+    height: 500px;
+    @include borderRadius(.5rem);
+    padding: .5rem;
+    padding: 2rem;
+    position: relative;
+    transform-style: preserve-3d;
+    @include borderRadius(1rem);
+
+    .face{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-style: preserve-3d;
+      @include transform(perspective(500px) rotateY(0deg));
+      @include transition(transform 1s ease-in-out);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.07);
+      @include borderRadius(1rem);
+
+      .content{
+        text-align: center;
+        z-index: 100;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        @include transform(translate(-50%, -30%));
+        color: $main;
+        letter-spacing: 1px;
+
+        h3{
+          font-size: 2.5rem;
+          color: $main;
+          font-weight: bold;
+          position: relative;
+          &::before{
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(217deg, #448ad5, #b8eaf9);
+            @include borderRadius(50%);
+            z-index: -2;
+            @include transform(translate(-50%, -50%));
+            @include animation( border-transform 6s linear infinite);
+          }
+        }
+        h2{
+          font-size: 3.5rem;
+          font-weight: 500;
+          margin-top: 4rem;
+          line-height: 1.2;
+        }
+        p{
+          margin-top: 0.5rem;
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+        .icon{
+          font-size: 1.6rem;
+          border-bottom: 1px solid $main;
+          display: inline-block;
+          margin-top: 2rem;
+        }
+        a{
+          display: inline-block;
+          margin-top: 2.5rem;
+          font-size: 1.7rem;
+          font-weight: bold;
+          color: $main;
+          background: $secoundary;
+          padding: .8rem 2rem;
+          @include borderRadius(.5rem);
+          @include transition(.3s);
+          letter-spacing: 1px;
+          z-index: 100;
+          cursor: pointer;
+
+          &:hover{
+            background: $main;
+            color: $secoundary;
+          }
+        }
+      }
+
+      .img1{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        @include borderRadius(1rem);
+        z-index: 1;
+        img{
+          @include borderRadius(1rem);
+        }
+      }
+
+      .img2{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      .img3{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 3;
+      }
+
+      .img4{
+        position: absolute;
+        bottom: 0%;
+        right: -8%;
+        width: 30%;
+        z-index: 4;
+      }
+
+      &.front{
+        background: #fff;
+        .kayak{
+          @include transform(translate(-100%, 30%));
+          @include transition(1.5s ease-in);
+          opacity: 0;
+          width: 130%;
+          @include transform(translate(-50px, 5px, 55px) perspective(100px) scale(.4));
+          transition: transform 400ms ease, opacity 200ms 150ms ease;
+          -webkit-transition: transform 400ms ease, opacity 200ms 150ms ease;
+          -moz-transition: transform 400ms ease, opacity 200ms 150ms ease;
+          -ms-transition: transform 400ms ease, opacity 200ms 150ms ease;
+          -o-transition: transform 400ms ease, opacity 200ms 150ms ease;
+
+          &.active{
+            @include transform(translate(-38%, -20%));
+            opacity: 1;
+            @include transform(translate(0, 0, 55px) perspective(100px) scale(1));
+            transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+            -webkit-transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+            -moz-transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+            -ms-transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+            -o-transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+            
+}
+}
+      .water{
+        @include transform(translate(-10%, -20%) perspective(100px) scale(.4));
+        opacity: 0;
+        width: 90%;
+        @include transition(transform .5s ease-in);
+        &.active{
+          @include transform(translate(20%, -20%) perspective(100px) scale(1));
+          opacity: 1;
+          @include transition(200ms 1400ms ease);
+        }
+      }
+      .stone{
+        @include transform(scale(0));
+        @include transition(transform .3s ease-in);
+
+          &.active{
+            @include transform(scale(1));
+            @include transition(transform .5s 1s ease-in);
+          }
+      }
+      }
+
+      &.back{
+        background: #fff;
+        @include transform(perspective(500px) rotateY(180deg));
+        .content{
+          h3{
+            &::before{
+              background: linear-gradient(217deg, #648946, #a3c984);
+            }
+          }
+        }
+        .camp{
+          @include transform(translate(-40%, -20%) scale(0));
+          opacity: 0;
+          width: 90%;
+          @include transition(.5s ease-in);
+
+          &.active{
+            opacity: 1;
+            @include transform(translate(-40%, -20%) scale(1));
+            @include transition(transform 1s 1s ease);
+          }
+        }
+        .ivy{
+          width: 80%;
+          @include transform(translate(30%, -20%) scale(0));
+          @include transition(transform .5s ease-in);
+
+          &.active{
+            @include transform(translate(30%, -20%) scale(1));
+            @include transition(transform 1s 1s ease-in);
+          }
+        }
+        .ivyRock{
+          @include transform(scale(0));
+          @include transition(transform .3s ease-in);
+          &.active{
+            @include transform(scale(1));
+            @include transition(transform .5s 1s ease-in);
+          }
+        }
+      }     
+    }
+
+    &.active{
+      .front{
+        @include transform(perspective(500px) rotateY(180deg));
+      }
+      .back{
+        @include transform(perspective(500px) rotateY(360deg));
+      }
+    }
+  }
 }
 
-.cards .face.front{
-    background: #ff0;
+
+@keyframes border-transform {
+  0%, 100%{
+    @include borderRadius(63% 37% 54% 46% / 55% 48% 52% 45%);
+  }
+  14%{
+    @include borderRadius(40% 60% 54% 46% / 49% 70% 30% 51%);
+  }
+  28%{
+    @include borderRadius(54% 46% 38% 62% / 49% 70% 30% 51%);
+  }
+  42%{
+    @include borderRadius(61% 39% 55% 45% / 61% 38% 62% 39%);
+  }
+  56%{
+    @include borderRadius(61% 39% 67% 33% / 70% 50% 50% 30%);
+  }
+  70%{
+    @include borderRadius(50% 50% 34% 66% / 56% 48% 32% 44%);
+  }
+ 84%{
+    @include borderRadius(46% 54% 50% 50% / 35% 61% 39% 65%);
+  }
 }
-.cards:hover .face.front{
-    transform: perspective(500px) rotateY(180deg);
-    -webkit-transform: perspective(500px) rotateY(180deg);
-    -moz-transform: perspective(500px) rotateY(180deg);
-    -ms-transform: perspective(500px) rotateY(180deg);
-    -o-transform: perspective(500px) rotateY(180deg);
-}
-.cards .face.back{
-    background: #3bc2ff;
-    color: #fff;
-    transform: perspective(500px) rotateY(180deg);
-    -webkit-transform: perspective(500px) rotateY(180deg);
-    -moz-transform: perspective(500px) rotateY(180deg);
-    -ms-transform: perspective(500px) rotateY(180deg);
-    -o-transform: perspective(500px) rotateY(180deg);
-}
-.cards:hover .face.back{
-    transform: perspective(500px) rotateY(360deg);
-    -webkit-transform: perspective(500px) rotateY(360deg);
-    -moz-transform: perspective(500px) rotateY(360deg);
-    -ms-transform: perspective(500px) rotateY(360deg);
-    -o-transform: perspective(500px) rotateY(360deg);
-}
+
+

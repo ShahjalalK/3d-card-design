@@ -4,14 +4,18 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
-  width: 100%;
-  height: 100vh;
+  font-family: 'Poppins', sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,50 +25,400 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: #ffeba7;
 }
 
-.cards {
+img {
+  width: 100%;
+}
+
+.section .btns {
   position: relative;
-  width: 300px;
-  height: 400px;
+  border: 1px solid #102770;
+  text-align: center;
+  margin-bottom: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 45px;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.section .btns .btn-overlay {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #102770;
+  z-index: -1;
+  content: '';
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  color: #ffeba7;
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+}
+
+.section .btns .btn-overlay.active {
+  background: #102770;
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+}
+
+.section .btns .btn {
+  width: 50%;
+  height: 100%;
+  font-size: 2rem;
+  padding: .5rem 2rem;
+  z-index: 100;
+  color: #102770;
+  font-weight: bold;
+}
+
+.section .btns .btn.active {
+  color: #ffeba7;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.section .card {
+  width: 350px;
+  height: 500px;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  padding: .5rem;
+  padding: 2rem;
+  position: relative;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
 }
 
-.cards .face {
+.section .card .face {
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  transition: 2s ease-in-out;
-  -webkit-transition: 2s ease-in-out;
-  -moz-transition: 2s ease-in-out;
-  -ms-transition: 2s ease-in-out;
-  -o-transition: 2s ease-in-out;
   transform: perspective(500px) rotateY(0deg);
   -webkit-transform: perspective(500px) rotateY(0deg);
   -moz-transform: perspective(500px) rotateY(0deg);
   -ms-transform: perspective(500px) rotateY(0deg);
   -o-transform: perspective(500px) rotateY(0deg);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+  -webkit-transition: transform 1s ease-in-out;
+  -moz-transition: transform 1s ease-in-out;
+  -ms-transition: transform 1s ease-in-out;
+  -o-transition: transform 1s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.07);
+          box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.07);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
 }
 
-.cards .face.front {
-  background: #ff0;
+.section .card .face .content {
+  text-align: center;
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -30%);
+  -webkit-transform: translate(-50%, -30%);
+  -moz-transform: translate(-50%, -30%);
+  -ms-transform: translate(-50%, -30%);
+  -o-transform: translate(-50%, -30%);
+  color: #102770;
+  letter-spacing: 1px;
 }
 
-.cards:hover .face.front {
+.section .card .face .content h3 {
+  font-size: 2.5rem;
+  color: #102770;
+  font-weight: bold;
+  position: relative;
+}
+
+.section .card .face .content h3::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(217deg, #448ad5, #b8eaf9);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  z-index: -2;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  animation: border-transform 6s linear infinite;
+  -webkit-animation: border-transform 6s linear infinite;
+}
+
+.section .card .face .content h2 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-top: 4rem;
+  line-height: 1.2;
+}
+
+.section .card .face .content p {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.section .card .face .content .icon {
+  font-size: 1.6rem;
+  border-bottom: 1px solid #102770;
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+.section .card .face .content a {
+  display: inline-block;
+  margin-top: 2.5rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #102770;
+  background: #ffeba7;
+  padding: .8rem 2rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  letter-spacing: 1px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.section .card .face .content a:hover {
+  background: #102770;
+  color: #ffeba7;
+}
+
+.section .card .face .img1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  z-index: 1;
+}
+
+.section .card .face .img1 img {
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.section .card .face .img2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.section .card .face .img3 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.section .card .face .img4 {
+  position: absolute;
+  bottom: 0%;
+  right: -8%;
+  width: 30%;
+  z-index: 4;
+}
+
+.section .card .face.front {
+  background: #fff;
+}
+
+.section .card .face.front .kayak {
+  transform: translate(-100%, 30%);
+  -webkit-transform: translate(-100%, 30%);
+  -moz-transform: translate(-100%, 30%);
+  -ms-transform: translate(-100%, 30%);
+  -o-transform: translate(-100%, 30%);
+  transition: 1.5s ease-in;
+  -webkit-transition: 1.5s ease-in;
+  -moz-transition: 1.5s ease-in;
+  -ms-transition: 1.5s ease-in;
+  -o-transition: 1.5s ease-in;
+  opacity: 0;
+  width: 130%;
+  transform: translate(-50px, 5px, 55px) perspective(100px) scale(0.4);
+  -webkit-transform: translate(-50px, 5px, 55px) perspective(100px) scale(0.4);
+  -moz-transform: translate(-50px, 5px, 55px) perspective(100px) scale(0.4);
+  -ms-transform: translate(-50px, 5px, 55px) perspective(100px) scale(0.4);
+  -o-transform: translate(-50px, 5px, 55px) perspective(100px) scale(0.4);
+  -webkit-transition: opacity 200ms 150ms ease, -webkit-transform 400ms ease;
+  transition: opacity 200ms 150ms ease, -webkit-transform 400ms ease;
+  transition: transform 400ms ease, opacity 200ms 150ms ease;
+  transition: transform 400ms ease, opacity 200ms 150ms ease, -webkit-transform 400ms ease;
+  -webkit-transition: transform 400ms ease, opacity 200ms 150ms ease;
+  -moz-transition: transform 400ms ease, opacity 200ms 150ms ease;
+  -ms-transition: transform 400ms ease, opacity 200ms 150ms ease;
+  -o-transition: transform 400ms ease, opacity 200ms 150ms ease;
+}
+
+.section .card .face.front .kayak.active {
+  transform: translate(-38%, -20%);
+  -webkit-transform: translate(-38%, -20%);
+  -moz-transform: translate(-38%, -20%);
+  -ms-transform: translate(-38%, -20%);
+  -o-transform: translate(-38%, -20%);
+  opacity: 1;
+  transform: translate(0, 0, 55px) perspective(100px) scale(1);
+  -webkit-transform: translate(0, 0, 55px) perspective(100px) scale(1);
+  -moz-transform: translate(0, 0, 55px) perspective(100px) scale(1);
+  -ms-transform: translate(0, 0, 55px) perspective(100px) scale(1);
+  -o-transform: translate(0, 0, 55px) perspective(100px) scale(1);
+  -webkit-transition: opacity 200ms 1300ms ease, -webkit-transform 300ms 1300ms ease;
+  transition: opacity 200ms 1300ms ease, -webkit-transform 300ms 1300ms ease;
+  transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+  transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease, -webkit-transform 300ms 1300ms ease;
+  -webkit-transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+  -moz-transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+  -ms-transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+  -o-transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+}
+
+.section .card .face.front .water {
+  transform: translate(-10%, -20%) perspective(100px) scale(0.4);
+  -webkit-transform: translate(-10%, -20%) perspective(100px) scale(0.4);
+  -moz-transform: translate(-10%, -20%) perspective(100px) scale(0.4);
+  -ms-transform: translate(-10%, -20%) perspective(100px) scale(0.4);
+  -o-transform: translate(-10%, -20%) perspective(100px) scale(0.4);
+  opacity: 0;
+  width: 90%;
+  -webkit-transition: -webkit-transform 0.5s ease-in;
+  transition: -webkit-transform 0.5s ease-in;
+  transition: transform 0.5s ease-in;
+  transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+  -webkit-transition: transform 0.5s ease-in;
+  -moz-transition: transform 0.5s ease-in;
+  -ms-transition: transform 0.5s ease-in;
+  -o-transition: transform 0.5s ease-in;
+}
+
+.section .card .face.front .water.active {
+  transform: translate(20%, -20%) perspective(100px) scale(1);
+  -webkit-transform: translate(20%, -20%) perspective(100px) scale(1);
+  -moz-transform: translate(20%, -20%) perspective(100px) scale(1);
+  -ms-transform: translate(20%, -20%) perspective(100px) scale(1);
+  -o-transform: translate(20%, -20%) perspective(100px) scale(1);
+  opacity: 1;
+  transition: 200ms 1400ms ease;
+  -webkit-transition: 200ms 1400ms ease;
+  -moz-transition: 200ms 1400ms ease;
+  -ms-transition: 200ms 1400ms ease;
+  -o-transition: 200ms 1400ms ease;
+}
+
+.section .card .face.front .stone {
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+  transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+  -webkit-transition: transform 0.3s ease-in;
+  -moz-transition: transform 0.3s ease-in;
+  -ms-transition: transform 0.3s ease-in;
+  -o-transition: transform 0.3s ease-in;
+}
+
+.section .card .face.front .stone.active {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transition: -webkit-transform 0.5s 1s ease-in;
+  transition: -webkit-transform 0.5s 1s ease-in;
+  transition: transform 0.5s 1s ease-in;
+  transition: transform 0.5s 1s ease-in, -webkit-transform 0.5s 1s ease-in;
+  -webkit-transition: transform 0.5s 1s ease-in;
+  -moz-transition: transform 0.5s 1s ease-in;
+  -ms-transition: transform 0.5s 1s ease-in;
+  -o-transition: transform 0.5s 1s ease-in;
+}
+
+.section .card .face.back {
+  background: #fff;
   transform: perspective(500px) rotateY(180deg);
   -webkit-transform: perspective(500px) rotateY(180deg);
   -moz-transform: perspective(500px) rotateY(180deg);
@@ -72,9 +426,108 @@ body {
   -o-transform: perspective(500px) rotateY(180deg);
 }
 
-.cards .face.back {
-  background: #3bc2ff;
-  color: #fff;
+.section .card .face.back .content h3::before {
+  background: linear-gradient(217deg, #648946, #a3c984);
+}
+
+.section .card .face.back .camp {
+  transform: translate(-40%, -20%) scale(0);
+  -webkit-transform: translate(-40%, -20%) scale(0);
+  -moz-transform: translate(-40%, -20%) scale(0);
+  -ms-transform: translate(-40%, -20%) scale(0);
+  -o-transform: translate(-40%, -20%) scale(0);
+  opacity: 0;
+  width: 90%;
+  transition: 0.5s ease-in;
+  -webkit-transition: 0.5s ease-in;
+  -moz-transition: 0.5s ease-in;
+  -ms-transition: 0.5s ease-in;
+  -o-transition: 0.5s ease-in;
+}
+
+.section .card .face.back .camp.active {
+  opacity: 1;
+  transform: translate(-40%, -20%) scale(1);
+  -webkit-transform: translate(-40%, -20%) scale(1);
+  -moz-transform: translate(-40%, -20%) scale(1);
+  -ms-transform: translate(-40%, -20%) scale(1);
+  -o-transform: translate(-40%, -20%) scale(1);
+  -webkit-transition: -webkit-transform 1s 1s ease;
+  transition: -webkit-transform 1s 1s ease;
+  transition: transform 1s 1s ease;
+  transition: transform 1s 1s ease, -webkit-transform 1s 1s ease;
+  -webkit-transition: transform 1s 1s ease;
+  -moz-transition: transform 1s 1s ease;
+  -ms-transition: transform 1s 1s ease;
+  -o-transition: transform 1s 1s ease;
+}
+
+.section .card .face.back .ivy {
+  width: 80%;
+  transform: translate(30%, -20%) scale(0);
+  -webkit-transform: translate(30%, -20%) scale(0);
+  -moz-transform: translate(30%, -20%) scale(0);
+  -ms-transform: translate(30%, -20%) scale(0);
+  -o-transform: translate(30%, -20%) scale(0);
+  -webkit-transition: -webkit-transform 0.5s ease-in;
+  transition: -webkit-transform 0.5s ease-in;
+  transition: transform 0.5s ease-in;
+  transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+  -webkit-transition: transform 0.5s ease-in;
+  -moz-transition: transform 0.5s ease-in;
+  -ms-transition: transform 0.5s ease-in;
+  -o-transition: transform 0.5s ease-in;
+}
+
+.section .card .face.back .ivy.active {
+  transform: translate(30%, -20%) scale(1);
+  -webkit-transform: translate(30%, -20%) scale(1);
+  -moz-transform: translate(30%, -20%) scale(1);
+  -ms-transform: translate(30%, -20%) scale(1);
+  -o-transform: translate(30%, -20%) scale(1);
+  -webkit-transition: -webkit-transform 1s 1s ease-in;
+  transition: -webkit-transform 1s 1s ease-in;
+  transition: transform 1s 1s ease-in;
+  transition: transform 1s 1s ease-in, -webkit-transform 1s 1s ease-in;
+  -webkit-transition: transform 1s 1s ease-in;
+  -moz-transition: transform 1s 1s ease-in;
+  -ms-transition: transform 1s 1s ease-in;
+  -o-transition: transform 1s 1s ease-in;
+}
+
+.section .card .face.back .ivyRock {
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+  transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+  -webkit-transition: transform 0.3s ease-in;
+  -moz-transition: transform 0.3s ease-in;
+  -ms-transition: transform 0.3s ease-in;
+  -o-transition: transform 0.3s ease-in;
+}
+
+.section .card .face.back .ivyRock.active {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transition: -webkit-transform 0.5s 1s ease-in;
+  transition: -webkit-transform 0.5s 1s ease-in;
+  transition: transform 0.5s 1s ease-in;
+  transition: transform 0.5s 1s ease-in, -webkit-transform 0.5s 1s ease-in;
+  -webkit-transition: transform 0.5s 1s ease-in;
+  -moz-transition: transform 0.5s 1s ease-in;
+  -ms-transition: transform 0.5s 1s ease-in;
+  -o-transition: transform 0.5s 1s ease-in;
+}
+
+.section .card.active .front {
   transform: perspective(500px) rotateY(180deg);
   -webkit-transform: perspective(500px) rotateY(180deg);
   -moz-transform: perspective(500px) rotateY(180deg);
@@ -82,11 +535,115 @@ body {
   -o-transform: perspective(500px) rotateY(180deg);
 }
 
-.cards:hover .face.back {
+.section .card.active .back {
   transform: perspective(500px) rotateY(360deg);
   -webkit-transform: perspective(500px) rotateY(360deg);
   -moz-transform: perspective(500px) rotateY(360deg);
   -ms-transform: perspective(500px) rotateY(360deg);
   -o-transform: perspective(500px) rotateY(360deg);
+}
+
+@-webkit-keyframes border-transform {
+  0%, 100% {
+    border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    -webkit-border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    -moz-border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    -ms-border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    -o-border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+  }
+  14% {
+    border-radius: 40% 60% 54% 46%/49% 70% 30% 51%;
+    -webkit-border-radius: 40% 60% 54% 46%/49% 70% 30% 51%;
+    -moz-border-radius: 40% 60% 54% 46%/49% 70% 30% 51%;
+    -ms-border-radius: 40% 60% 54% 46%/49% 70% 30% 51%;
+    -o-border-radius: 40% 60% 54% 46%/49% 70% 30% 51%;
+  }
+  28% {
+    border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    -webkit-border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    -moz-border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    -ms-border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    -o-border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+  }
+  42% {
+    border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+    -webkit-border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+    -moz-border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+    -ms-border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+    -o-border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+  }
+  56% {
+    border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    -webkit-border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    -moz-border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    -ms-border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    -o-border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+  }
+  70% {
+    border-radius: 50% 50% 34% 66%/56% 48% 32% 44%;
+    -webkit-border-radius: 50% 50% 34% 66%/56% 48% 32% 44%;
+    -moz-border-radius: 50% 50% 34% 66%/56% 48% 32% 44%;
+    -ms-border-radius: 50% 50% 34% 66%/56% 48% 32% 44%;
+    -o-border-radius: 50% 50% 34% 66%/56% 48% 32% 44%;
+  }
+  84% {
+    border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    -webkit-border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    -moz-border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    -ms-border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    -o-border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+  }
+}
+
+@keyframes border-transform {
+  0%, 100% {
+    border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    -webkit-border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    -moz-border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    -ms-border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    -o-border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+  }
+  14% {
+    border-radius: 40% 60% 54% 46%/49% 70% 30% 51%;
+    -webkit-border-radius: 40% 60% 54% 46%/49% 70% 30% 51%;
+    -moz-border-radius: 40% 60% 54% 46%/49% 70% 30% 51%;
+    -ms-border-radius: 40% 60% 54% 46%/49% 70% 30% 51%;
+    -o-border-radius: 40% 60% 54% 46%/49% 70% 30% 51%;
+  }
+  28% {
+    border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    -webkit-border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    -moz-border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    -ms-border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    -o-border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+  }
+  42% {
+    border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+    -webkit-border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+    -moz-border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+    -ms-border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+    -o-border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+  }
+  56% {
+    border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    -webkit-border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    -moz-border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    -ms-border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    -o-border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+  }
+  70% {
+    border-radius: 50% 50% 34% 66%/56% 48% 32% 44%;
+    -webkit-border-radius: 50% 50% 34% 66%/56% 48% 32% 44%;
+    -moz-border-radius: 50% 50% 34% 66%/56% 48% 32% 44%;
+    -ms-border-radius: 50% 50% 34% 66%/56% 48% 32% 44%;
+    -o-border-radius: 50% 50% 34% 66%/56% 48% 32% 44%;
+  }
+  84% {
+    border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    -webkit-border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    -moz-border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    -ms-border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    -o-border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
